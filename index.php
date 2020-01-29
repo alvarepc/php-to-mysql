@@ -4,9 +4,8 @@
 # https://github.com/gshipley/phpdatabase
 
 echo "Welcome to OpenShift Online Developer Preview";
-echo "<br>To test the database, hit the dbtest.php URL";
 echo "<br><br>This assumes that you have the correct env variables set";
-echo "<BR><BR>The environment variables required are databaseuser, databasepassword, and databasenmae.";
+echo "<br><br>The environment variables required are MYSQL_SERVICE_HOST, MYSQL_SERVICE_PORT, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE.";
 
 $dbhost = getenv("MYSQL_SERVICE_HOST");
 $dbport = getenv("MYSQL_SERVICE_PORT");
@@ -16,13 +15,13 @@ $dbname = getenv("MYSQL_DATABASE");
 
 $connection = new mysqli($dbhost, $dbuser, $dbpwd, $dbname);
 if ($connection->connect_errno) {
-    printf("Connect failed: %s\n", $mysqli->connect_error);
+    printf("<br><br>Connect failed: %s", $connection->connect_error);
     exit();
 } else {
-    printf("Connected to the database\n");
+    printf("<br><br>Connected to the database");
 	# Display the table
 	$query = "SELECT * FROM instructors";
-	if ($result = $mysqli->query($query)) {
+	if ($result = $connection->query($query)) {
 		echo '<table border="0" cellspacing="2" cellpadding="2"> 
 		<tr> 
 			<td> <font face="Arial">instructorNumber</font> </td> 
@@ -51,7 +50,7 @@ if ($connection->connect_errno) {
 		$result->free();
 	}
 	else {
-		printf("Instructor table not found!\n");
+		printf("<br><br>Instructors table not found!\n");
 	}
 }
 $connection->close();
