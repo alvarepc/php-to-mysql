@@ -27,7 +27,7 @@ if ($connection->connect_errno) {
 			<td> <font face="Arial">Instructor Number</font> </td> 
 			<td> <font face="Arial">Instructor Name</font> </td> 
 			<td> <font face="Arial">Email</font> </td> 
-			<td> <font face="Arial">city</font> </td> 
+			<td> <font face="Arial">City</font> </td> 
 			<td> <font face="Arial">State</font> </td> 
 			<td> <font face="Arial">Postal Code</font> </td> 
 			<td> <font face="Arial">Country</font> </td> 
