@@ -21,7 +21,7 @@ if ($connection->connect_errno) {
 } else {
     printf("Connected to the database\n");
 	# Display the table
-	$query = "SELECT * FROM instructor";
+	$query = "SELECT * FROM instructors";
 	if ($result = $mysqli->query($query)) {
 		echo '<table border="0" cellspacing="2" cellpadding="2"> 
 		<tr> 
